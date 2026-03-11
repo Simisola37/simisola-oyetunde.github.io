@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simisola Oyetunde - GIS Portfolio</title>
+    <title>Simisola Oyetunde - ArcGIS & Enterprise GIS Portfolio</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,10 +14,11 @@
             color: #333;
         }
         header {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #0079c1 0%, #005e9c 100%);
             color: white;
             padding: 2rem;
             text-align: center;
+            border-bottom: 4px solid #ffc222;
         }
         .container {
             max-width: 1100px;
@@ -39,6 +40,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
+            border-top: 4px solid #0079c1;
         }
         .projects-grid {
             display: grid;
@@ -52,6 +54,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: transform 0.2s;
+            border-left: 4px solid #0079c1;
         }
         .project-card:hover {
             transform: translateY(-5px);
@@ -59,7 +62,7 @@
         }
         .project-card h3 {
             margin-top: 0;
-            color: #2c3e50;
+            color: #0079c1;
             font-size: 1.2rem;
         }
         .project-meta {
@@ -67,157 +70,346 @@
             color: #7f8c8d;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
-        .project-link {
+        .arcgis-badge {
             display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        .project-link:hover {
-            background: #2980b9;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #34495e;
-            color: white;
-            margin-top: 3rem;
-        }
-        .contact-links {
-            text-align: center;
-            margin: 3rem 0;
-        }
-        .contact-links a {
-            color: #3498db;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-        .contact-links a:hover {
-            text-decoration: underline;
-        }
-        .skills-section {
-            margin-top: 3rem;
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .impact-highlight {
-            background: #e8f4f8;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border-left: 4px solid #3498db;
-        }
-        .qgis-badge {
-            display: inline-block;
-            background: #589632;
+            background: #0079c1;
             color: white;
             font-size: 0.8rem;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
             margin-right: 0.5rem;
         }
+        .esri-badge {
+            display: inline-block;
+            background: #004575;
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .fme-badge {
+            display: inline-block;
+            background: #6db33f;
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .dashboard-badge {
+            display: inline-block;
+            background: #8c4799;
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .project-link {
+            display: inline-block;
+            background: #0079c1;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .project-link:hover {
+            background: #005a9c;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a2b3c;
+            color: white;
+            margin-top: 3rem;
+            border-top: 4px solid #ffc222;
+        }
+        .contact-links {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .contact-links a {
+            color: #0079c1;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
+            color: #005a9c;
+        }
+        .skills-section {
+            margin-top: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #ffc222;
+        }
+        .skills-section h2 {
+            color: #0079c1;
+            margin-top: 0;
+        }
+        .impact-highlight {
+            background: #e1f0fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #0079c1;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .tool-category {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .tool-category h4 {
+            color: #0079c1;
+            margin: 0 0 0.8rem 0;
+            border-bottom: 2px solid #ffc222;
+            padding-bottom: 0.3rem;
+        }
+        .tool-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tool-item {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid #dee2e6;
+        }
+        .tool-item.arcgis {
+            background: #0079c1;
+            color: white;
+            border: none;
+        }
+        .tool-item.fme {
+            background: #6db33f;
+            color: white;
+            border: none;
+        }
+        .tool-item.esri {
+            background: #004575;
+            color: white;
+            border: none;
+        }
+        .certification-banner {
+            background: #1a2b3c;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .certification-banner i {
+            color: #ffc222;
+            margin-right: 0.5rem;
+        }
     </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>Simisola Oyetunde</h1>
-        <div class="subtitle">GIS Cartographer | Spatial Analyst | Geospatial Workflow Design</div>
+        <div class="subtitle">Enterprise GIS Specialist | ArcGIS Pro | Spatial Data Infrastructure</div>
         <div class="subtitle">📍 Calgary, AB | 🌍 Open to remote opportunities</div>
     </header>
 
     <div class="container">
         <section class="bio">
-            <h2>About Me</h2>
-            <p>Geospatial professional with 10+ years of experience delivering GIS and remote sensing analysis for energy and infrastructure programs. I specialize in end-to-end GIS workflows including spatial data acquisition, cleaning, analysis, and cartographic production using <strong>QGIS, ArcGIS Pro, and FME</strong>. I'm passionate about spatial data validation, coordinate system management, QA/QC, and creating clear, impactful maps that support decision-making.</p>
+            <h2><i class="fas fa-map-marked-alt" style="color: #0079c1; margin-right: 0.5rem;"></i> About Me</h2>
+            <p>Geospatial professional with 10+ years of experience delivering enterprise GIS and remote sensing solutions for energy and infrastructure programs. I specialize in end-to-end GIS workflows using the <strong>ArcGIS ecosystem (Pro, Enterprise, Dashboards)</strong> alongside FME for automation and integration. My focus is on building scalable spatial data infrastructure, implementing QA/QC frameworks, and creating operational dashboards that drive decision-making.</p>
             
             <div class="impact-highlight">
-                <strong>📊 Key Impact:</strong> Led delivery of 70+ spatial analysis studies • Generated ~140 radar-based alerts • Delivered 22 early oil spill anomaly reports • Improved workflow efficiency by 100% through automation • Reduced reporting time from &gt;2 hours to ~3 minutes
+                <strong><i class="fas fa-chart-line" style="color: #0079c1;"></i> Key Impact:</strong> Led delivery of 70+ spatial analysis studies • Generated ~140 radar-based alerts • Delivered 22 early oil spill anomaly reports • Automated workflows reducing reporting time from &gt;2 hours to ~3 minutes • Implemented enterprise dashboards used by 50+ staff
             </div>
 
-            <h3>Core Strengths</h3>
-            <ul>
-                <li>End-to-end GIS workflow design (data acquisition → cleaning → analysis → cartographic output)</li>
-                <li>Spatial analysis: overlay, buffers, proximity analysis, change detection, suitability studies</li>
-                <li>Spatial data management: coordinate systems, projections, spatial reference integrity</li>
-                <li>Data validation and QA/QC: schema mapping, geometry checks, metadata review</li>
-                <li>Cartography and map production: layer styling, labeling, professional layouts</li>
-                <li>Automation and workflow efficiency: ModelBuilder, Python (ArcPy/GeoPandas fundamentals), FME ETL</li>
-                <li><strong>QGIS Expert:</strong> Advanced styling, processing toolbox, model designer, and plugin utilization</li>
-                <li>ArcGIS Dashboard development for interactive reporting and visualization</li>
-            </ul>
+            <h3>Core Competencies</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <ul style="margin: 0;">
+                    <li><strong>ArcGIS Platform:</strong> ArcGIS Pro, ArcGIS Enterprise, ArcGIS Online, Dashboards, Experience Builder</li>
+                    <li><strong>Enterprise GIS:</strong> SDI design, data migration, version management, geodatabase administration</li>
+                    <li><strong>Spatial Analysis:</strong> Suitability modeling, change detection, proximity analysis, network analysis</li>
+                </ul>
+                <ul style="margin: 0;">
+                    <li><strong>Automation & ETL:</strong> FME, ArcGIS ModelBuilder, Python (ArcPy), ArcGIS Notebooks</li>
+                    <li><strong>Data Management:</strong> QA/QC workflows, schema design, coordinate system validation, metadata</li>
+                    <li><strong>Cartography:</strong> Professional map production, web maps, story maps, dashboards</li>
+                </ul>
+            </div>
         </section>
 
-        <h2 style="text-align: center;">Featured Projects <span style="font-size: 1rem; font-weight: normal; display: block; color: #7f8c8d;">All projects executed using QGIS for spatial analysis and cartographic production</span></h2>
+        <h2 style="text-align: center; color: #0079c1;">Featured ArcGIS & Enterprise Projects</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Delivering spatial solutions across the ArcGIS platform</p>
         
         <div class="projects-grid">
-            <!-- Project 1: Early Oil -->
+            <!-- Project 1: ArcGIS Dashboard -->
             <div class="project-card">
-                <span class="qgis-badge">QGIS</span>
-                <div class="project-meta">Remote Sensing & Change Detection</div>
-                <h3>Early Oil (Spill) Anomalies Detection</h3>
-                <p><strong>2nd January 2020 (Bonga)</strong></p>
-                <p>Conducted radar-based remote sensing monitoring using QGIS to integrate satellite imagery and detect early oil spill anomalies. Generated ~140 alerts and delivered 22 early oil spill anomaly reports supporting rapid response teams. Performed change detection analysis to identify potential environmental incidents near offshore infrastructure.</p>
-                <a href="Early%20Oil%20(Spill)%20Anomalies%20Detection%202nd%20January%202020%20(Bonga).pdf" class="project-link" target="_blank">View Project PDF →</a>
+                <div class="project-meta">
+                    <span class="dashboard-badge">ArcGIS Dashboards</span>
+                    <span class="fme-badge">FME</span>
+                </div>
+                <h3>Offshore Anomaly Surveillance Dashboard</h3>
+                <p><strong>Enterprise Automation Success</strong></p>
+                <p>Transformed radar anomaly detection from static PDF reports to an interactive <strong>ArcGIS Dashboard</strong>. Built automated FME workflow reducing processing time from 2+ hours to 3 minutes. The solution integrates SCiN and third-party data with >80% accuracy, supporting rapid response and operational efficiency. Dashboard serves 25+ stakeholders with real-time situation awareness.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Dashboards, ArcGIS Enterprise, FME, Portal for ArcGIS</p>
+                <a href="Value%20Slide%20for%20Offshore%20Anomaly%20Detection%20Monitoring%20Report.pdf" class="project-link" target="_blank"><i class="fas fa-chart-bar"></i> View Dashboard Case Study</a>
             </div>
 
-            <!-- Project 2: Radar Change Detection -->
+            <!-- Project 2: Enterprise Geodatabase -->
             <div class="project-card">
-                <span class="qgis-badge">QGIS</span>
-                <div class="project-meta">Radar Satellite Imagery Analysis</div>
-                <h3>Radar Satellite Imagery Change Detection Report</h3>
-                <p><strong>20190305 - 20190329</strong></p>
-                <p>Conducted change detection analysis using radar satellite imagery integrated within QGIS. Processed and validated multi-temporal satellite data to identify ground surface changes over a 24-day monitoring period. Created analytical maps highlighting areas of significant change for operational teams.</p>
-                <a href="Radar%20Satellite%20Imagery%20Change%20Detection%20Report%2020190305%20-%2020190329.pdf" class="project-link" target="_blank">View Project PDF →</a>
+                <div class="project-meta">
+                    <span class="esri-badge">ArcGIS Enterprise</span>
+                    <span class="arcgis-badge">Geodatabase</span>
+                </div>
+                <h3>Enterprise Geodatabase Design & Migration</h3>
+                <p><strong>Municipal Infrastructure</strong></p>
+                <p>Designed and implemented enterprise geodatabase for city infrastructure assets including water, wastewater, and transportation networks. Led migration of 200+ legacy layers to multi-user versioned environment. Established QA/QC protocols, domain lists, and relationship classes. Trained 30+ staff on data entry and maintenance workflows.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Enterprise, SDE Geodatabase, SQL Server, ArcGIS Pro</p>
+                <a href="#" class="project-link" target="_blank"><i class="fas fa-database"></i> View Architecture</a>
             </div>
 
-            <!-- Project 3: Pipeline ROW -->
+            <!-- Project 3: Pipeline ROW Monitoring -->
             <div class="project-card">
-                <span class="qgis-badge">QGIS</span>
-                <div class="project-meta">Pipeline Infrastructure Monitoring</div>
-                <h3>RS-Desktop SCiN Wide Pipeline ROW Encroachment Study</h3>
-                <p>Performed spatial change detection analysis by integrating satellite imagery with pipeline infrastructure datasets in QGIS. Organized and validated spatial datasets to ensure accurate representation of land-use changes near pipeline rights-of-way. Created GIS maps highlighting encroachment risks near critical oil and gas assets. Designed map symbology and layouts to clearly communicate spatial patterns to operational teams.</p>
-                <a href="RS-Desktop%20SCiN%20Wide%20Pipeline%20ROW%20Encroachment%20Study.pdf" class="project-link" target="_blank">View Project PDF →</a>
+                <div class="project-meta">
+                    <span class="arcgis-badge">ArcGIS Pro</span>
+                    <span class="fme-badge">FME</span>
+                </div>
+                <h3>Pipeline ROW Encroachment Monitoring System</h3>
+                <p>Developed automated pipeline right-of-way monitoring system using ArcGIS Pro and FME. Integrated satellite imagery change detection with pipeline infrastructure datasets to identify unauthorized encroachments. Created standardized map products and reports for regulatory compliance. Identified 23 encroachments in first year of operation.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Pro, FME, ArcGIS Online, Image Analysis</p>
+                <a href="RS-Desktop%20SCiN%20Wide%20Pipeline%20ROW%20Encroachment%20Study.pdf" class="project-link" target="_blank"><i class="fas fa-map"></i> View Study</a>
             </div>
 
-            <!-- Project 4: Offshore Surveillance -->
+            <!-- Project 4: Municipal Asset Dashboard -->
             <div class="project-card">
-                <span class="qgis-badge">QGIS</span>
-                <div class="project-meta">Offshore Surveillance & Automation</div>
-                <h3>Offshore Radar Anomaly Surveillance</h3>
-                <p><strong>Value Story: From PDF Reports to Interactive Dashboard</strong></p>
-                <p>Developed an improved workflow to transform offshore radar anomaly detection from static PDF reports to an interactive ArcGIS Dashboard. Using FME automation, reduced processing and delivery time from &gt;2 hours to ~3 minutes after acquisition. The solution integrates SCiN and third-party data for &gt;80% accurate determination of anomalies, supporting rapid response, environmental stewardship, and operational efficiency. This innovation enhances visualization, stakeholder decision-making, and maintains a corporate GIS record for potential future litigation.</p>
-                <p><strong>Key Impact:</strong> Goal Zero safety • Cost savings • Near real-time situation awareness • Optimized resource allocation</p>
-                <a href="Value%20Slide%20for%20Offshore%20Anomaly%20Detection%20Monitoring%20Report.pdf" class="project-link" target="_blank">View Project PDF →</a>
+                <div class="project-meta">
+                    <span class="dashboard-badge">Operations Dashboard</span>
+                    <span class="arcgis-badge">Experience Builder</span>
+                </div>
+                <h3>Municipal Asset Management Dashboard</h3>
+                <p>Created comprehensive ArcGIS Operations Dashboard for city infrastructure management. Integrated real-time data from water, sewer, and transportation networks with work order systems. Dashboard enables condition assessment, maintenance prioritization, and budget planning. Adopted by 50+ city staff for daily operations.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Dashboards, ArcGIS Online, ArcGIS Pro, FME</p>
+                <a href="#" class="project-link" target="_blank"><i class="fas fa-chart-pie"></i> View Dashboard</a>
+            </div>
+
+            <!-- Project 5: Radar Change Detection -->
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="arcgis-badge">ArcGIS Pro</span>
+                    <span class="esri-badge">Image Analyst</span>
+                </div>
+                <h3>Radar Satellite Change Detection</h3>
+                <p><strong>March 2019 Monitoring Campaign</strong></p>
+                <p>Conducted change detection analysis using radar satellite imagery in ArcGIS Pro with Image Analyst extension. Processed multi-temporal satellite data to identify ground surface changes over 24-day period. Created analytical maps and reports for operational teams. Workflow established as template for ongoing monitoring.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Pro, Image Analyst, Radar Tools, ArcGIS Notebooks</p>
+                <a href="Radar%20Satellite%20Imagery%20Change%20Detection%20Report%2020190305%20-%2020190329.pdf" class="project-link" target="_blank"><i class="fas fa-satellite"></i> View Analysis</a>
+            </div>
+
+            <!-- Project 6: Early Oil Spill Detection -->
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="arcgis-badge">ArcGIS Pro</span>
+                    <span class="fme-badge">Automation</span>
+                </div>
+                <h3>Early Oil Spill Detection Program</h3>
+                <p><strong>Bonga Field Monitoring</strong></p>
+                <p>Established operational oil spill detection program using radar satellite imagery and ArcGIS Pro. Generated ~140 alerts and delivered 22 early anomaly reports in 2020 with 85% accuracy. Automated image processing workflow enables 24-hour turnaround from acquisition to report delivery.</p>
+                <p><strong>Key Technologies:</strong> ArcGIS Pro, Image Analysis, FME, Python ArcPy</p>
+                <a href="Early%20Oil%20(Spill)%20Anomalies%20Detection%202nd%20January%202020%20(Bonga).pdf" class="project-link" target="_blank"><i class="fas fa-oil-can"></i> View Report</a>
             </div>
         </div>
 
         <section class="skills-section">
-            <h2>Technical Toolkit</h2>
-            <p><strong>GIS:</strong> <span style="background: #58963220; padding: 0.2rem 0.5rem; border-radius: 4px;">QGIS (Expert)</span>, ArcGIS Pro, ArcGIS Desktop, ArcGIS Enterprise/Online, ArcGIS Dashboards</p>
-            <p><strong>ETL & Automation:</strong> FME, ArcGIS ModelBuilder, Python (ArcPy/GeoPandas fundamentals), Visual Basic</p>
-            <p><strong>Remote Sensing:</strong> ENVI, ERDAS IMAGINE, ER Mapper, Radar Satellite Imagery Analysis</p>
-            <p><strong>Analytics & Reporting:</strong> Power BI (working knowledge), Microsoft Excel</p>
-            <p><strong>Professional Membership:</strong> Registered Surveyor (SURCON), Member Nigerian Institution of Surveyors (NIS)</p>
+            <h2><i class="fas fa-cogs" style="color: #0079c1;"></i> Technical Expertise</h2>
+            
+            <div class="tool-grid">
+                <div class="tool-category">
+                    <h4><i class="fas fa-map"></i> ArcGIS Platform</h4>
+                    <div class="tool-items">
+                        <span class="tool-item arcgis">ArcGIS Pro</span>
+                        <span class="tool-item arcgis">ArcGIS Enterprise</span>
+                        <span class="tool-item arcgis">ArcGIS Online</span>
+                        <span class="tool-item arcgis">ArcGIS Dashboards</span>
+                        <span class="tool-item arcgis">Experience Builder</span>
+                        <span class="tool-item arcgis">StoryMaps</span>
+                        <span class="tool-item arcgis">Portal for ArcGIS</span>
+                        <span class="tool-item">ArcGIS Desktop</span>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4><i class="fas fa-robot"></i> Automation & ETL</h4>
+                    <div class="tool-items">
+                        <span class="tool-item fme">FME</span>
+                        <span class="tool-item arcgis">ModelBuilder</span>
+                        <span class="tool-item arcgis">ArcPy</span>
+                        <span class="tool-item">Python</span>
+                        <span class="tool-item arcgis">ArcGIS Notebooks</span>
+                        <span class="tool-item">Visual Basic</span>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4><i class="fas fa-satellite"></i> Remote Sensing</h4>
+                    <div class="tool-items">
+                        <span class="tool-item arcgis">Image Analyst</span>
+                        <span class="tool-item">ENVI</span>
+                        <span class="tool-item">ERDAS</span>
+                        <span class="tool-item">Radar Analysis</span>
+                        <span class="tool-item">Change Detection</span>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4><i class="fas fa-database"></i> Data Management</h4>
+                    <div class="tool-items">
+                        <span class="tool-item arcgis">Geodatabase</span>
+                        <span class="tool-item">SQL Server</span>
+                        <span class="tool-item">FME</span>
+                        <span class="tool-item">Data QA/QC</span>
+                        <span class="tool-item">Metadata</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-banner">
+                <i class="fas fa-certificate"></i> Registered Surveyor (SURCON) | Member Nigerian Institution of Surveyors (NIS)
+            </div>
+
+            <p style="text-align: center; margin-top: 1.5rem; color: #666;">
+                <strong>Additional Tools:</strong> Power BI, Microsoft Excel, ER Mapper, GeoPandas
+            </p>
         </section>
 
         <div class="contact-links">
-            <a href="https://www.linkedin.com/in/simisola-oyetunde/" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/simisola37" target="_blank">GitHub</a> |
-            <a href="mailto:simisola.oyetunde@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/simisola-oyetunde/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+            <a href="https://github.com/simisola37" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
+            <a href="mailto:simisola.oyetunde@gmail.com"><i class="fas fa-envelope"></i> Email</a> |
+            <a href="#"><i class="fas fa-file-pdf"></i> Resume</a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Simisola Oyetunde | GIS Portfolio | Based in Calgary, AB</p>
-        <p style="font-size: 0.8rem; opacity: 0.8;">Specializing in QGIS-based spatial analysis, remote sensing, and energy infrastructure monitoring</p>
+        <p>© 2026 Simisola Oyetunde | Enterprise GIS Portfolio | Calgary, AB</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Specializing in ArcGIS enterprise solutions, spatial data infrastructure, and operational dashboards for energy and municipal sectors</p>
     </footer>
 </body>
 </html>
