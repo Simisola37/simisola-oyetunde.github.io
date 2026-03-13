@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simisola Oyetunde - GIS Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .landing-card {
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .subhead {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eef2f7;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .portfolio-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            border-color: #0079c1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .badge {
+            background: #eef2f7;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e3c72;
+        }
+        .badge.remote {
+            background: #c97732;
+            color: white;
+        }
+        .badge.gis {
+            background: #0079c1;
+            color: white;
+        }
+        .description {
+            color: #4a5568;
+            margin: 1rem 0;
+            font-size: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #2a5298;
+        }
+        .footer-note {
+            margin-top: 2.5rem;
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .contact-links a {
+            color: #1e3c72;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        @media (max-width: 700px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="landing-card">
+        <h1>Simisola Oyetunde</h1>
+        <div class="subhead">GIS Analyst · Remote Sensing Specialist · Spatial Data Management</div>
+        
+        <p style="font-size: 1.1rem; color: #2c3e50; max-width: 700px; margin: 0 auto;">
+            10+ years experience delivering geospatial solutions for energy, infrastructure, and environmental programs.
+        </p>
+        
+        <div class="portfolio-grid">
+            <!-- Original GIS Portfolio Card -->
+            <a href="original.html" class="portfolio-card">
+                <div class="icon">🗺️</div>
+                <h2>Core GIS Portfolio</h2>
+                <div class="badge-container">
+                    <span class="badge gis">ArcGIS Pro</span>
+                    <span class="badge gis">QGIS</span>
+                    <span class="badge gis">FME</span>
+                    <span class="badge gis">Spatial Analysis</span>
+                </div>
+                <p class="description">End-to-end GIS workflows, cartography, enterprise geodatabases, and spatial analysis for infrastructure and municipal projects.</p>
+                <span class="btn">View Portfolio →</span>
+            </a>
+            
+            <!-- Remote Sensing Portfolio Card -->
+            <a href="remote-sensing.html" class="portfolio-card">
+                <div class="icon">🛰️</div>
+                <h2>Remote Sensing & GeoAI</h2>
+                <div class="badge-container">
+                    <span class="badge remote">Radar</span>
+                    <span class="badge remote">LiDAR</span>
+                    <span class="badge remote">Machine Learning</span>
+                    <span class="badge remote">Change Detection</span>
+                </div>
+                <p class="description">Satellite-based monitoring, forest inventory, oil spill detection, and automated change detection using AI/ML workflows.</p>
+                <span class="btn">View Portfolio →</span>
+            </a>
+        </div>
+
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/simisola-oyetunde/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/simisola37" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:simisola.oyetunde@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+        
+        <div class="footer-note">
+            <i class="fas fa-map-marker-alt"></i> Calgary, AB · Open to remote opportunities
+        </div>
+    </div>
+</body>
+</html>
