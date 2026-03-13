@@ -1,1 +1,801 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simisola Oyetunde - Remote Sensing Specialist | GeoAI | Forest Inventory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f7f3;
+            color: #1a332b;
+            line-height: 1.6;
+        }
+
+        /* Remote sensing palette */
+        :root {
+            --forest-pine: #1d4b3e;
+            --forest-moss: #2d6a4f;
+            --sensor-radar: #c97732;
+            --sensor-lidar: #4a6fa5;
+            --sensor-sar: #9b5e3c;
+            --ai-amber: #eab308;
+            --cloud-mist: #e6f0ea;
+            --satellite-night: #132e3c;
+        }
+
+        header {
+            background: linear-gradient(135deg, #132e3c 0%, #1d4b3e 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--ai-amber);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🛰️";
+            position: absolute;
+            right: 5%;
+            top: 20%;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-badge {
+            background: var(--ai-amber);
+            color: #132e3c;
+            padding: 0.3rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0.5rem auto;
+        }
+
+        .location {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Intro section */
+        .intro-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 30px rgba(0,40,20,0.08);
+            border-left: 6px solid var(--ai-amber);
+        }
+
+        .intro-title {
+            font-size: 1.8rem;
+            color: #1d4b3e;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #2d4a40;
+            margin-bottom: 1.5rem;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.5rem 0;
+        }
+
+        .keyword {
+            background: #e1efea;
+            color: #1d4b3e;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .keyword.highlight {
+            background: var(--ai-amber);
+            color: #132e3c;
+            font-weight: 600;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #d0e0d8;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1d4b3e;
+        }
+
+        .stat-label {
+            color: #4a6b5c;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Toolkit */
+        .toolkit {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 1px solid #d0e0d8;
+        }
+
+        .toolkit h2 {
+            color: #1d4b3e;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .toolkit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .tool-category h3 {
+            color: var(--sensor-lidar);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--ai-amber);
+            padding-bottom: 0.5rem;
+        }
+
+        .tool-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tool-item {
+            background: #f0f7f3;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            border: 1px solid #bcd0c5;
+        }
+
+        .tool-item.ai {
+            background: var(--ai-amber);
+            color: #132e3c;
+            font-weight: 600;
+            border-color: var(--ai-amber);
+        }
+
+        .tool-item.radar {
+            background: var(--sensor-radar);
+            color: white;
+            border-color: var(--sensor-radar);
+        }
+
+        /* Projects */
+        .section-header {
+            margin: 3rem 0 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #1d4b3e;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #d0e0d8;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,40,20,0.15);
+        }
+
+        .project-header {
+            height: 160px;
+            background: linear-gradient(135deg, #1d4b3e, #2d6a4f);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .sensor-tags {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .sensor-tag {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .sensor-tag.ai {
+            background: var(--ai-amber);
+            color: #132e3c;
+            font-weight: 600;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: #1d4b3e;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta span {
+            background: #e1efea;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1d4b3e;
+        }
+
+        .project-desc {
+            color: #2d4a40;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-detail {
+            margin: 0.8rem 0;
+            font-size: 0.9rem;
+        }
+
+        .project-detail strong {
+            color: #1d4b3e;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 0.8rem 0;
+            border-top: 1px solid #d0e0d8;
+            border-bottom: 1px solid #d0e0d8;
+        }
+
+        .tech-item {
+            background: #f0f7f3;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+
+        .project-link {
+            background: #1d4b3e;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            background: #2d6a4f;
+        }
+
+        .pdf-link {
+            color: #4a6b5c;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #d0e0d8;
+        }
+
+        .gallery-image {
+            height: 140px;
+            background: linear-gradient(145deg, #1d4b3e, #2d6a4f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .gallery-caption {
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.8rem;
+            background: #f9fbfa;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            border: 1px solid #d0e0d8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: #1d4b3e;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link.resume {
+            background: var(--ai-amber);
+            color: #132e3c;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #132e3c;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 4px solid var(--ai-amber);
+        }
+
+        @media (max-width: 800px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .toolkit-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Simisola Oyetunde</h1>
+        <div class="title-badge">Remote Sensing Specialist | GeoAI</div>
+        <div class="subtitle">Transforming satellite and LiDAR data into actionable forest intelligence through advanced machine learning</div>
+        <div class="location"><i class="fas fa-map-marker-alt"></i> Calgary, AB | Open to remote opportunities</div>
+    </header>
+
+    <div class="container">
+        <!-- Intro -->
+        <div class="intro-card">
+            <div class="intro-title">
+                <i class="fas fa-satellite" style="color: var(--ai-amber);"></i> 
+                Remote Sensing · GeoAI · Forest Inventory
+            </div>
+            <p class="intro-text">
+                Remote sensing specialist with 10+ years of experience delivering satellite-based monitoring, change detection, and spatial analysis for infrastructure and environmental programs. I specialize in applying machine learning to LiDAR, radar, and multispectral imagery — developing scalable workflows that transform raw remote sensing data into operational intelligence.
+            </p>
+            <div class="keywords">
+                <span class="keyword highlight">LiDAR Analytics</span>
+                <span class="keyword highlight">Radar Change Detection</span>
+                <span class="keyword highlight">Machine Learning</span>
+                <span class="keyword">Deep Learning</span>
+                <span class="keyword">Random Forest</span>
+                <span class="keyword">Image Classification</span>
+                <span class="keyword">Time Series Analysis</span>
+                <span class="keyword">QA/QC</span>
+                <span class="keyword">Automation</span>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">70+</div>
+                <div class="stat-label">Remote Sensing Studies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">140</div>
+                <div class="stat-label">Radar Alerts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">22</div>
+                <div class="stat-label">Early Reports</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Time Reduction</div>
+            </div>
+        </div>
+
+        <!-- Toolkit -->
+        <div class="toolkit">
+            <h2><i class="fas fa-microchip"></i> Remote Sensing & GeoAI Toolkit</h2>
+            <div class="toolkit-grid">
+                <div class="tool-category">
+                    <h3>Satellite & Radar</h3>
+                    <div class="tool-items">
+                        <span class="tool-item radar">Radar Imagery</span>
+                        <span class="tool-item">Sentinel-1</span>
+                        <span class="tool-item">Change Detection</span>
+                        <span class="tool-item">SAR</span>
+                        <span class="tool-item">Multispectral</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>LiDAR Processing</h3>
+                    <div class="tool-items">
+                        <span class="tool-item">LAStools</span>
+                        <span class="tool-item">lidR</span>
+                        <span class="tool-item">PDAL</span>
+                        <span class="tool-item">Point Cloud</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>AI/ML</h3>
+                    <div class="tool-items">
+                        <span class="tool-item ai">Python</span>
+                        <span class="tool-item ai">scikit-learn</span>
+                        <span class="tool-item ai">Random Forest</span>
+                        <span class="tool-item">PyTorch</span>
+                        <span class="tool-item">TensorFlow</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>GIS & Automation</h3>
+                    <div class="tool-items">
+                        <span class="tool-item">ArcGIS Pro</span>
+                        <span class="tool-item">QGIS</span>
+                        <span class="tool-item">FME</span>
+                        <span class="tool-item">ModelBuilder</span>
+                        <span class="tool-item">ArcPy</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>Remote Sensing SW</h3>
+                    <div class="tool-items">
+                        <span class="tool-item">ENVI</span>
+                        <span class="tool-item">ERDAS</span>
+                        <span class="tool-item">Google Earth Engine</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3>Forest Inventory</h3>
+                    <div class="tool-items">
+                        <span class="tool-item">Biomass</span>
+                        <span class="tool-item">Species</span>
+                        <span class="tool-item">Change Detection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image"><i class="fas fa-satellite"></i></div>
+                <div class="gallery-caption">Radar change detection · Bonga field</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="gallery-caption">Pipeline ROW encroachment study</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"><i class="fas fa-chart-line"></i></div>
+                <div class="gallery-caption">Automated anomaly dashboard</div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section-header">
+            <h2>Remote Sensing Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: Early Oil Detection -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="sensor-tags">
+                        <span class="sensor-tag">Radar</span>
+                        <span class="sensor-tag ai">ML</span>
+                        <span class="sensor-tag">Change Detection</span>
+                    </div>
+                    <div class="project-icon"><i class="fas fa-oil-can"></i></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Early Oil Spill Detection · Bonga Field</h3>
+                    <div class="project-meta">
+                        <span>Radar</span>
+                        <span>QGIS</span>
+                        <span>Change Detection</span>
+                    </div>
+                    <p class="project-desc">Radar-based remote sensing program for early oil spill anomaly detection using satellite imagery integration.</p>
+                    
+                    <div class="project-detail"><strong>Objective:</strong> Detect oil spills within 24 hours of image acquisition to support rapid response teams.</div>
+                    <div class="project-detail"><strong>Methods:</strong> Multi-temporal radar analysis · Change detection algorithms · Automated alert generation · QA/QC validation</div>
+                    <div class="project-detail"><strong>Outcome:</strong> Generated 140+ alerts · Delivered 22 early anomaly reports in 2020 · 85% accuracy · Supported environmental incident response</div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-item">Radar</span>
+                        <span class="tech-item">QGIS</span>
+                        <span class="tech-item">Change Detection</span>
+                        <span class="tech-item">Image Analysis</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-eye"></i> View Report</a>
+                        <a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Radar Change Detection -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="sensor-tags">
+                        <span class="sensor-tag">Radar</span>
+                        <span class="sensor-tag">Time Series</span>
+                    </div>
+                    <div class="project-icon"><i class="fas fa-satellite"></i></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Radar Change Detection · March 2019</h3>
+                    <div class="project-meta">
+                        <span>Radar</span>
+                        <span>QGIS</span>
+                        <span>Time Series</span>
+                    </div>
+                    <p class="project-desc">Multi-temporal radar satellite analysis to identify ground surface changes over 24-day monitoring period.</p>
+                    
+                    <div class="project-detail"><strong>Objective:</strong> Detect surface changes for operational monitoring and risk assessment.</div>
+                    <div class="project-detail"><strong>Methods:</strong> Processed multi-temporal radar imagery · Change detection algorithms · Analytical map production</div>
+                    <div class="project-detail"><strong>Outcome:</strong> Created change detection maps highlighting areas of significant surface change for operational teams.</div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-item">Radar</span>
+                        <span class="tech-item">QGIS</span>
+                        <span class="tech-item">Change Detection</span>
+                        <span class="tech-item">Time Series</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-eye"></i> View Analysis</a>
+                        <a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Pipeline ROW -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="sensor-tags">
+                        <span class="sensor-tag">Satellite</span>
+                        <span class="sensor-tag">Change Detection</span>
+                    </div>
+                    <div class="project-icon"><i class="fas fa-industry"></i></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Pipeline ROW Encroachment Study</h3>
+                    <div class="project-meta">
+                        <span>Satellite</span>
+                        <span>Change Detection</span>
+                        <span>QGIS</span>
+                    </div>
+                    <p class="project-desc">Spatial change detection analysis integrating satellite imagery with pipeline infrastructure datasets.</p>
+                    
+                    <div class="project-detail"><strong>Objective:</strong> Identify land-use changes and encroachment risks near pipeline rights-of-way.</div>
+                    <div class="project-detail"><strong>Methods:</strong> Satellite imagery integration · Change detection · Spatial validation · Cartographic production</div>
+                    <div class="project-detail"><strong>Outcome:</strong> Delivered risk maps highlighting encroachment areas for operational teams and regulatory compliance.</div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-item">Satellite</span>
+                        <span class="tech-item">QGIS</span>
+                        <span class="tech-item">Change Detection</span>
+                        <span class="tech-item">Spatial Analysis</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-eye"></i> View Study</a>
+                        <a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Offshore Automation -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="sensor-tags">
+                        <span class="sensor-tag">Radar</span>
+                        <span class="sensor-tag ai">Automation</span>
+                        <span class="sensor-tag">Dashboard</span>
+                    </div>
+                    <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Offshore Radar Anomaly Surveillance</h3>
+                    <div class="project-meta">
+                        <span>Radar</span>
+                        <span>FME</span>
+                        <span>ArcGIS Dashboards</span>
+                    </div>
+                    <p class="project-desc">Automated workflow transforming radar anomaly detection from static PDF reports to interactive dashboard.</p>
+                    
+                    <div class="project-detail"><strong>Objective:</strong> Reduce reporting time and improve situational awareness for offshore monitoring.</div>
+                    <div class="project-detail"><strong>Methods:</strong> FME automation · Data integration · ArcGIS Dashboard development · QA/QC workflows</div>
+                    <div class="project-detail"><strong>Outcome:</strong> Reduced processing time from 2+ hours to 3 minutes · >80% accuracy · Real-time stakeholder access</div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-item">Radar</span>
+                        <span class="tech-item">FME</span>
+                        <span class="tech-item">ArcGIS Dashboards</span>
+                        <span class="tech-item">Automation</span>
+                        <span class="tech-item">Python</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-eye"></i> View Dashboard</a>
+                        <a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research & Methods Section -->
+        <div style="background: white; border-radius: 24px; padding: 2rem; margin: 2.5rem 0; border: 1px solid #d0e0d8;">
+            <h3 style="color: #1d4b3e; margin-bottom: 1.5rem; font-size: 1.5rem;">Methods & Techniques</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div>
+                    <h4 style="color: var(--sensor-radar); margin-bottom: 0.5rem;">Radar Analysis</h4>
+                    <p style="font-size: 0.9rem;">Change detection · Time series · Backscatter analysis · Alert generation</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--sensor-lidar); margin-bottom: 0.5rem;">Machine Learning</h4>
+                    <p style="font-size: 0.9rem;">Random Forest · Classification · Anomaly detection · Model validation</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--forest-moss); margin-bottom: 0.5rem;">Automation</h4>
+                    <p style="font-size: 0.9rem;">FME workflows · Python scripting · ModelBuilder · QA/QC pipelines</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-section">
+            <h2 style="color: #1d4b3e; margin-bottom: 1rem;">Simisola Oyetunde</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Remote Sensing Specialist · Calgary, Canada</p>
+            
+            <div class="contact-links">
+                <a href="mailto:simisola.oyetunde@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://www.linkedin.com/in/simisola-oyetunde/" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="contact-link resume">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="https://github.com/simisola37" target="_blank" style="color: #1d4b3e; text-decoration: none;">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Simisola Oyetunde · Remote Sensing Portfolio</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Specializing in satellite-based monitoring, change detection, and GeoAI for forest and infrastructure applications</p>
+    </footer>
+</body>
+</html>
